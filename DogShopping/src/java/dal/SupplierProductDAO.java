@@ -46,30 +46,30 @@ public class SupplierProductDAO extends DBContext {
         return list;
     }
     
-    public List<Product> getProductsWithSupplierProductBySid(int[] sid) {
-        SupplierProduct p = null;
-        SupplierDAO sdao = new SupplierDAO();
-        ProductDAO pdao = new ProductDAO();
-        try {
-            String sql = "select * from suppliers_products where sid in (?)";
-            PreparedStatement st = connection.prepareStatement(sql);
-            String s = "";
-            for (int i = 0; i < sid.length; i++) {
-                s += i;
-                if (i < sid.length - 1) {
-                    s += ", ";
-                }
-            }
-            st.setString(1, s);
-            ResultSet rs = st.executeQuery();
-            while (rs.next()) {
-                p = new SupplierProduct();
-                p.setSupplier(sdao.getSingleSupplier(rs.getInt("sid")));
-                p.setProduct(pdao.getSingleProduct(rs.getInt("pid")));
-            }
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-        return p;
-    }
+//    public List<Product> getProductsWithSupplierProductBySid(int[] sid) {
+//        SupplierProduct p = null;
+//        SupplierDAO sdao = new SupplierDAO();
+//        ProductDAO pdao = new ProductDAO();
+//        try {
+//            String sql = "select * from suppliers_products where sid in (?)";
+//            PreparedStatement st = connection.prepareStatement(sql);
+//            String s = "";
+//            for (int i = 0; i < sid.length; i++) {
+//                s += i;
+//                if (i < sid.length - 1) {
+//                    s += ", ";
+//                }
+//            }
+//            st.setString(1, s);
+//            ResultSet rs = st.executeQuery();
+//            while (rs.next()) {
+//                p = new SupplierProduct();
+//                p.setSupplier(sdao.getSingleSupplier(rs.getInt("sid")));
+//                p.setProduct(pdao.getSingleProduct(rs.getInt("pid")));
+//            }
+//        } catch (SQLException e) {
+//            System.out.println(e);
+//        }
+//        return p;
+//    }
 }

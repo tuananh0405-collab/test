@@ -103,7 +103,7 @@
                         <td><%=c.getCategory()%></td>
                         <td><fmt:formatNumber pattern="##.##" value="<%= c.getPrice() * (100-c.getDiscount()) / 100 %>"/></td>
                         <td><img src="images/<%= c.getImage() %>" alt="<%= c.getImage() %>" style="height: 180px; width: 300px;"/></td>
-                        <td><a href="order-now?quantity=1&id=<%=c.getId() %>" class="btn btn-sm btn-primary">Buy now</a></td>
+                        <td><a href="checkout.jsp?quantity=1&id=<%=c.getId() %>" class="btn btn-sm btn-primary">Buy now</a></td>
                         <td><a href="remove-from-cart?id=<%=c.getId() %>" class="btn btn-sm btn-danger">Remove</a></td>
                     </tr>
 

@@ -46,59 +46,63 @@
         %>
     </head>
     <body>
-        <div class="card-header my-3 d-flex align-items-center justify-content-between">
-            <a href="#"><h5>Dashboard</h5></a>
-            <a class="nav-link" href="logout">Log out</a>
-        </div>
-        <div class="row">
-            <%@include file="includes/asideadmin.jsp" %>
+        <c:if test="${sessionScope.auth.getRoleid()==1}">
+            <div class="card-header my-3 d-flex align-items-center justify-content-between">
+                <a href="#"><h5>Dashboard</h5></a>
+                <a class="nav-link" href="logout">Log out</a>
+            </div>
+            <div class="row">
+                <%@include file="includes/asideadmin.jsp" %>
 
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                <table class="table table-light">
-                    <thead>
-                        <tr>
-                            <th scope="col">User name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Password</th>
-                            <th scope="col">Role</th>
-                            <th scope="col">Phone</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach items="${list}" var="o">
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                    <table class="table table-light">
+                        <thead>
                             <tr>
-                                <td>${o.getName()}</td>
-                                <td>${o.getEmail()}</td>
-                                <td>${o.getPassword()}</td>
-                                <td>${(o.getRoleid() eq 0)?"User" : "Admin"}</td>
-                                <td>${o.getPhone()}</td>
-                            </tr> 
-                        </c:forEach>
-                    </tbody>
-                </table>
-                <div style="text-align: center;" class="clearfix">
-                    <div class="hint-text">Showing <b>${requestScope.tag}</b> out of <b>${requestScope.endP}</b> entries</div>
-                    <ul class="pagination" style="display: flex; align-items: center; justify-content: center;">
-                        <c:if test="${requestScope.tag>1}">
-                            <li class="page-item">
-                                <a href="show-users?index=${requestScope.tag-1}" class="page-link" aria-label="Go to previous page">Previous</a>
-                            </li>
-                        </c:if>
-                        <c:forEach begin="1" end="${requestScope.endP}" var="i">
-                            <li class="page-item ${requestScope.tag == i?"active":""}">
-                                <a href="show-users?index=${i}" class="page-link">${i}</a>
-                            </li> 
-                        </c:forEach>
-                        <c:if test="${requestScope.tag < requestScope.endP}">
-                            <li class="page-item">
-                                <a href="show-users?index=${requestScope.tag+1}" class="page-link" aria-label="Go to next page">Next</a>
-                            </li>
-                        </c:if>
-                    </ul>
-                </div>
-            </main>
-        </div>
-
+                                <th scope="col">User name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Password</th>
+                                <th scope="col">Role</th>
+                                <th scope="col">Phone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${list}" var="o">
+                                <tr>
+                                    <td>${o.getName()}</td>
+                                    <td>${o.getEmail()}</td>
+                                    <td>${o.getPassword()}</td>
+                                    <td>${(o.getRoleid() eq 0)?"User" : "Admin"}</td>
+                                    <td>${o.getPhone()}</td>
+                                </tr> 
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                    <div style="text-align: center;" class="clearfix">
+                        <div class="hint-text">Showing <b>${requestScope.tag}</b> out of <b>${requestScope.endP}</b> entries</div>
+                        <ul class="pagination" style="display: flex; align-items: center; justify-content: center;">
+                            <c:if test="${requestScope.tag>1}">
+                                <li class="page-item">
+                                    <a href="show-users?index=${requestScope.tag-1}" class="page-link" aria-label="Go to previous page">Previous</a>
+                                </li>
+                            </c:if>
+                            <c:forEach begin="1" end="${requestScope.endP}" var="i">
+                                <li class="page-item ${requestScope.tag == i?"active":""}">
+                                    <a href="show-users?index=${i}" class="page-link">${i}</a>
+                                </li> 
+                            </c:forEach>
+                            <c:if test="${requestScope.tag < requestScope.endP}">
+                                <li class="page-item">
+                                    <a href="show-users?index=${requestScope.tag+1}" class="page-link" aria-label="Go to next page">Next</a>
+                                </li>
+                            </c:if>
+                        </ul>
+                    </div>
+                </main>
+            </div>
+        </c:if>
+        <c:if test="${sessionScope.auth.getRoleid()!=1}">
+            <%@include file="includes/access_denied.jsp" %>
+        </c:if>
         <%@include file="includes/footer.jsp" %>
     </body>
 </html>

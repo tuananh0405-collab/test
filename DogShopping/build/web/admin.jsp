@@ -25,7 +25,8 @@
         <%@include file="includes/head.jsp" %>
     </head>
     <body>
-        <div class="card-header my-3 d-flex align-items-center justify-content-between">
+        <c:if test="${sessionScope.auth.getRoleid()==1}">
+            <div class="card-header my-3 d-flex align-items-center justify-content-between">
                 <a href="#"><h5>Dashboard</h5></a>
                 <a class="nav-link" href="logout">Log out</a>
             </div>
@@ -114,7 +115,10 @@
                     </div>
                 </main>
             </div>
-
+        </c:if>
+        <c:if test="${sessionScope.auth.getRoleid()!=1}">
+            <%@include file="includes/access_denied.jsp" %>
+        </c:if>
         <%@include file="includes/footer.jsp" %>
     </body>
 </body>
