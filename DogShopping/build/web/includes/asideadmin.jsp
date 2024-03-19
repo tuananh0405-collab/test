@@ -46,6 +46,25 @@
                     </ul>
                 </div>
             </li>
+<!--            <li class="nav-item">
+
+                <a class="nav-link text-center" href="adminorders.jsp">Orders</a>
+
+                </div>
+            </li>-->
+<li class="nav-item">
+                <a class="nav-link text-center" data-toggle="collapse" href="#orderMenu" role="button" aria-expanded="false" aria-controls="orderMenu">
+                    Orders
+                </a>
+                <div class="collapse" id="orderMenu">
+                    <ul class="nav flex-column ml-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="adminorders.jsp">Show orders</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </li>
         </ul>
     </div>
 </nav>

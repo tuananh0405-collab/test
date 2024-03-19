@@ -292,7 +292,13 @@
                                                 <h6 class="category">Category: <a  style="text-decoration: none"  href="product-pagination?category=${c.getCategory()}">${c.getCategory()}</a></h6>
                                                 <div class="mt-3 d-flex justify-content-between">
                                                     <a href="add-to-cart?id=${c.getId()}" class="btn btn-danger">Add to cart</a>
-                                                    <a href="checkout.jsp?quantity=1&id=${c.getId()}" class="btn btn-primary">Buy now</a>
+                                                    <c:if test="${sessionScope.auth!=null}">
+                                                        <a href="checkout.jsp?quantity=1&id=${c.getId()}" class="btn btn-primary">Buy now</a>
+                                                    </c:if>
+                                                    <c:if test="${sessionScope.auth==null}">
+                                                        <a href="login.jsp" class="btn btn-primary">Buy now</a>
+
+                                                    </c:if>
                                                 </div>
                                             </div>
                                         </div>

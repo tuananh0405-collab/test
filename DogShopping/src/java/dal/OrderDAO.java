@@ -16,6 +16,29 @@ import model.Order;
  * @author Admin
  */
 public class OrderDAO extends DBContext {
+    
+    public List<Order> getAllOrders(){
+        List<Order> list = new ArrayList<>();
+        String sql = "select * from orders";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Order o = new Order();
+                UserDAO udao = new UserDAO();
+                o.setOid(rs.getInt("oid"));
+                o.setTotalprice(rs.getDouble("totalprice"));
+                o.setAddress(rs.getString("address"));
+                o.setNote(rs.getString("note"));
+                o.setDate(rs.getString("date"));
+                o.setUser(udao.getUserById(rs.getInt("uid")));
+                list.add(o);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return list;
+    }
 
     public boolean insertOrder(Order model) {
         boolean result = false;

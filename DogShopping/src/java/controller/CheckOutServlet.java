@@ -71,6 +71,7 @@ public class CheckOutServlet extends HttpServlet {
             throws ServletException, IOException {
 //        processRequest(request, response);
         try (PrintWriter out = response.getWriter()) {
+           
             HttpSession session = request.getSession();
             ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
             User auth = (User) request.getSession().getAttribute("auth");

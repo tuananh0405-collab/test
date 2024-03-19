@@ -108,10 +108,15 @@
         transform: scale(1.1);
         color: blue;
     }
+    .foot{
+   left: 0;
+   bottom: 0;
+   width: 100%;
+    }
 </style>
 
 <!-- Remove the container if you want to extend the Footer to full width. -->
-<div class="">
+<div class="foot">
 
   <footer class="bg-dark text-center text-lg-start text-white">
     <!-- Grid container -->
