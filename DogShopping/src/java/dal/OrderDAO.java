@@ -33,6 +33,7 @@ public class OrderDAO extends DBContext {
                 o.setDate(rs.getString("date"));
                 o.setUser(udao.getUserById(rs.getInt("uid")));
                 list.add(o);
+                System.out.println(list.size());
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

@@ -59,7 +59,7 @@
                 <div class="collapse" id="orderMenu">
                     <ul class="nav flex-column ml-3">
                         <li class="nav-item">
-                            <a class="nav-link" href="adminorders.jsp">Show orders</a>
+                            <a class="nav-link" href="show-order">Show orders</a>
                         </li>
                         
                     </ul>

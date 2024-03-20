@@ -72,15 +72,19 @@
 
                                 <c:forEach items="${list}" var="o">
                                     <tr>
-                                        <td>${o.oid}</td>
-
-                                    </tr> 
+                                        <td>àdasf</td>
+                                        <td>àdasf</td>
+                                        <td>àdasf</td>
+                                        <td>àdasf</td>
+                                        <td>àdasf</td>
+                                        <td>àdasf</td>
+                                    </tr>
                                 </c:forEach>
-                            </tbody>
-                        </table>
-                    </form>
-                </main>
-            </div>
+                                </tbody>
+                            </table>
+                        </form>
+                    </main>
+                </div>
         </c:if>
         <c:if test="${sessionScope.auth.getRoleid()!=1}">
             <%@include file="includes/access_denied.jsp" %>
