@@ -72,12 +72,12 @@
 
                                 <c:forEach items="${list}" var="o">
                                     <tr>
-                                        <td>àdasf</td>
-                                        <td>àdasf</td>
-                                        <td>àdasf</td>
-                                        <td>àdasf</td>
-                                        <td>àdasf</td>
-                                        <td>àdasf</td>
+                                        <td>${o.getOid()}</td>
+                                        <td>${o.getTotalprice()}</td>
+                                        <td>${o.getNote()}</td>
+                                        <td>${o.getAddress()}</td>
+                                        <td>${o.getDate()}</td>
+                                        <td ><a href="show-users">${o.getUser().getName()}</a></td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>

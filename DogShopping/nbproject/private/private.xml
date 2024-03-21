@@ -5,6 +5,8 @@
         <group>
             <file>file:/C:/Users/Admin/Desktop/DogShopping/DogShopping/web/orders.jsp</file>
             <file>file:/C:/Users/Admin/Desktop/DogShopping/DogShopping/web/includes/asideadmin.jsp</file>
+            <file>file:/C:/Users/Admin/Desktop/DogShopping/DogShopping/src/java/model/Order.java</file>
+            <file>file:/C:/Users/Admin/Desktop/DogShopping/DogShopping/src/java/model/User.java</file>
             <file>file:/C:/Users/Admin/Desktop/DogShopping/DogShopping/src/java/controller/ShowOrdersServlet.java</file>
             <file>file:/C:/Users/Admin/Desktop/DogShopping/DogShopping/src/java/dal/OrderDAO.java</file>
             <file>file:/C:/Users/Admin/Desktop/DogShopping/DogShopping/web/adminorders.jsp</file>

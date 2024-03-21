@@ -24,12 +24,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file="includes/head.jsp" %>
         <title>Login</title>
-                <link rel="shortcut icon" href="./images/cropped-favicon.jpg" type="image/x-icon"  />
+        <link rel="shortcut icon" href="./images/cropped-favicon.jpg" type="image/x-icon"  />
 
     </head>
     <body>
         <%@include file="includes/navbar.jsp" %>
-        
+
         <%
             String message = (String) request.getSession().getAttribute("message");
             if (message!=null && message!="") {
@@ -49,8 +49,8 @@
             }
             request.getSession().removeAttribute("message");
         %>
-        
-        <div class="container" style="margin-top: 70px">
+
+        <div class="container" style="margin-top: 70px; min-height: 100vh">
             <div class="card w-50 mx-auto my-5">
                 <div class="card-header text-center">Login &nbsp &nbsp | &nbsp &nbsp <a href="sign-up">Sign up</a></div>
                 <div class="card-body">
@@ -70,6 +70,7 @@
                 </div>
             </div>
         </div>
+        <%@include file="includes/foot.jsp" %>
 
         <%@include file="includes/footer.jsp" %>
     </body>
